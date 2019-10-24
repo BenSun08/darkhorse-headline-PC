@@ -19,4 +19,12 @@ const router = new VueRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.name === 'index') {
+    let token = localStorage.getItem('dh_user_token_PC')
+    if (!token) next('/login')
+    else next()
+  } else next()
+})
+
 export default router

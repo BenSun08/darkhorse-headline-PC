@@ -7,3 +7,10 @@ export const login = function (data) {
     data
   })
 }
+
+export const getUserDetails = function (id) {
+  return axios({
+    method: 'get',
+    url: `/user/${id}`
+  })
+}
